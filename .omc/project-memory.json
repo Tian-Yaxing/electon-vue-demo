@@ -121,6 +121,61 @@
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "src/assets/styles/reset.css",
+      "accessCount": 2,
+      "lastAccessed": 1779706069958,
+      "type": "file"
+    },
+    {
+      "path": "src/types/menu.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779706038499,
+      "type": "file"
+    },
+    {
+      "path": "src/composables/useMenu.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779706038610,
+      "type": "file"
+    },
+    {
+      "path": "src/components/layout/Sidebar.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779706038727,
+      "type": "file"
+    },
+    {
+      "path": "src/components/pages/Calculator.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779706038826,
+      "type": "file"
+    },
+    {
+      "path": "src/components/pages/Notepad.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779706038922,
+      "type": "file"
+    },
+    {
+      "path": "src/components/pages/Timer.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779706039019,
+      "type": "file"
+    },
+    {
+      "path": "src/components/pages/Todo.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779706039158,
+      "type": "file"
+    },
+    {
+      "path": "src/App.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779706050688,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }
