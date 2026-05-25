@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1779702238538,
+  "projectRoot": "/Users/tyx/electron-vue-template",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "vite",
+        "version": "5.4.21",
+        "category": "build"
+      },
+      {
+        "name": "vue",
+        "version": "3.5.34",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "pnpm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "pnpm dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "vue-tsc --noEmit && vite build && electron-builder",
+      "preview": "vite preview"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "dist-electron": {
+      "path": "dist-electron",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1779702238523,
+      "keyFiles": []
+    },
+    "electron": {
+      "path": "electron",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779702238523,
+      "keyFiles": [
+        "electron-env.d.ts"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 1,
+      "lastAccessed": 1779702238525,
+      "keyFiles": [
+        "logo.svg"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 4,
+      "lastAccessed": 1779702238525,
+      "keyFiles": [
+        "App.vue",
+        "main.ts",
+        "uno.config.ts",
+        "vite-env.d.ts"
+      ]
+    },
+    "src/assets": {
+      "path": "src/assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1779702238525,
+      "keyFiles": []
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 1,
+      "lastAccessed": 1779702238525,
+      "keyFiles": [
+        "HelloWorld.vue"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
