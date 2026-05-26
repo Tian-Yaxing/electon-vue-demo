@@ -123,39 +123,141 @@
   },
   "hotPaths": [
     {
+      "path": "electron/main/index.ts",
+      "accessCount": 9,
+      "lastAccessed": 1779708637590,
+      "type": "file"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 5,
+      "lastAccessed": 1779707484999,
+      "type": "file"
+    },
+    {
+      "path": "electron/main/services/FloatWindowManager.ts",
+      "accessCount": 5,
+      "lastAccessed": 1779707882782,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/FloatApp.vue",
+      "accessCount": 5,
+      "lastAccessed": 1779708562568,
+      "type": "file"
+    },
+    {
+      "path": "electron/preload/index.ts",
+      "accessCount": 5,
+      "lastAccessed": 1779708594353,
+      "type": "file"
+    },
+    {
       "path": "src/assets/styles/reset.css",
-      "accessCount": 2,
-      "lastAccessed": 1779706069958,
+      "accessCount": 4,
+      "lastAccessed": 1779706953820,
       "type": "file"
     },
     {
-      "path": "src/types/menu.ts",
-      "accessCount": 1,
-      "lastAccessed": 1779706038499,
+      "path": "src/uno.config.ts",
+      "accessCount": 4,
+      "lastAccessed": 1779707641339,
       "type": "file"
     },
     {
-      "path": "src/composables/useMenu.ts",
-      "accessCount": 1,
-      "lastAccessed": 1779706038610,
+      "path": "electron/main/services/ScreenshotService.ts",
+      "accessCount": 4,
+      "lastAccessed": 1779707896386,
+      "type": "file"
+    },
+    {
+      "path": "src/App.vue",
+      "accessCount": 3,
+      "lastAccessed": 1779706939200,
       "type": "file"
     },
     {
       "path": "src/components/layout/Sidebar.vue",
-      "accessCount": 1,
-      "lastAccessed": 1779706038727,
+      "accessCount": 3,
+      "lastAccessed": 1779706947046,
+      "type": "file"
+    },
+    {
+      "path": "src/composables/useMenu.ts",
+      "accessCount": 3,
+      "lastAccessed": 1779706947106,
+      "type": "file"
+    },
+    {
+      "path": "src/types/menu.ts",
+      "accessCount": 3,
+      "lastAccessed": 1779706950930,
+      "type": "file"
+    },
+    {
+      "path": "src/main.ts",
+      "accessCount": 3,
+      "lastAccessed": 1779707385054,
+      "type": "file"
+    },
+    {
+      "path": "src/vite-env.d.ts",
+      "accessCount": 3,
+      "lastAccessed": 1779708654002,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 2,
+      "lastAccessed": 1779706925281,
+      "type": "file"
+    },
+    {
+      "path": "src/demos/ipc.ts",
+      "accessCount": 2,
+      "lastAccessed": 1779706946994,
+      "type": "file"
+    },
+    {
+      "path": "src/assets/styles/index.css",
+      "accessCount": 2,
+      "lastAccessed": 1779706950983,
+      "type": "file"
+    },
+    {
+      "path": "src/components/pages/Notepad.vue",
+      "accessCount": 2,
+      "lastAccessed": 1779706953768,
+      "type": "file"
+    },
+    {
+      "path": "electron/main/services/OllamaService.ts",
+      "accessCount": 2,
+      "lastAccessed": 1779707700321,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/composables/useFloatWindow.ts",
+      "accessCount": 2,
+      "lastAccessed": 1779708191340,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/composables/useScreenshot.ts",
+      "accessCount": 2,
+      "lastAccessed": 1779708192396,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/main.ts",
+      "accessCount": 2,
+      "lastAccessed": 1779708695447,
       "type": "file"
     },
     {
       "path": "src/components/pages/Calculator.vue",
       "accessCount": 1,
       "lastAccessed": 1779706038826,
-      "type": "file"
-    },
-    {
-      "path": "src/components/pages/Notepad.vue",
-      "accessCount": 1,
-      "lastAccessed": 1779706038922,
       "type": "file"
     },
     {
@@ -171,9 +273,69 @@
       "type": "file"
     },
     {
-      "path": "src/App.vue",
+      "path": "electron/common/ipcChannels.ts",
       "accessCount": 1,
-      "lastAccessed": 1779706050688,
+      "lastAccessed": 1779707331348,
+      "type": "file"
+    },
+    {
+      "path": "electron/common/types.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779707332419,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 1,
+      "lastAccessed": 1779707375186,
+      "type": "file"
+    },
+    {
+      "path": "floating.html",
+      "accessCount": 1,
+      "lastAccessed": 1779707383989,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/components/FloatPanel.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779707427933,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/components/ScreenshotPreview.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779707429011,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/components/ActionToolbar.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779707430089,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/components/ChatPanel.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779707431195,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/components/MessageList.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779707432268,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/components/StatusIndicator.vue",
+      "accessCount": 1,
+      "lastAccessed": 1779707433318,
+      "type": "file"
+    },
+    {
+      "path": "src/floating/composables/useOllama.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779707457403,
       "type": "file"
     }
   ],

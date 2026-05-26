@@ -1,5 +1,6 @@
 import vue from "@vitejs/plugin-vue";
 import fs from "node:fs";
+import path from "node:path";
 import UnoCSS from "unocss/vite";
 import { defineConfig } from "vite";
 import electron from "vite-plugin-electron/simple";
@@ -67,9 +68,19 @@ export default defineConfig(({ command }) => {
         // Polyfill the Electron and Node.js API for Renderer process.
         // If you want to use Node.js in Renderer process, the `nodeIntegration` needs to be enabled in the Main process.
         // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
-        renderer: {},
+        renderer: {
+          nodeIntegration: false,
+        },
       }),
     ],
+    build: {
+      rollupOptions: {
+        input: {
+          index: path.resolve(__dirname, 'index.html'),
+          floating: path.resolve(__dirname, 'floating.html'),
+        },
+      },
+    },
     server:
       process.env.VSCODE_DEBUG &&
       (() => {

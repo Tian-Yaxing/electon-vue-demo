@@ -1,4 +1,5 @@
 import { ipcRenderer, contextBridge } from 'electron'
+import { IPC_CHANNELS } from '../common/ipcChannels'
 
 // --------- Expose some API to the Renderer process ---------
 contextBridge.exposeInMainWorld('ipcRenderer', {
@@ -18,9 +19,25 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
     const [channel, ...omit] = args
     return ipcRenderer.invoke(channel, ...omit)
   },
+})
 
-  // You can expose other APTs you need here.
-  // ...
+// --------- Expose Float Window API ---------
+contextBridge.exposeInMainWorld('electronAPI', {
+  // Float window
+  floatShow: () => ipcRenderer.invoke(IPC_CHANNELS.FLOATING.SHOW),
+  floatHide: () => ipcRenderer.invoke(IPC_CHANNELS.FLOATING.HIDE),
+  floatToggle: () => ipcRenderer.invoke(IPC_CHANNELS.FLOATING.TOGGLE),
+
+  // Screenshot
+  screenshotCaptureFull: () => ipcRenderer.invoke(IPC_CHANNELS.SCREENSHOT.CAPTURE_FULLSCREEN),
+  screenshotCaptureSelection: () => ipcRenderer.invoke(IPC_CHANNELS.SCREENSHOT.CAPTURE_SELECTION),
+  onScreenshotComplete: (callback: (result: any) => void) =>
+    ipcRenderer.on(IPC_CHANNELS.SCREENSHOT.SELECTION_COMPLETE, (_, result) => callback(result)),
+
+  // Clipboard & File
+  copyImageToClipboard: (dataUrl: string) => ipcRenderer.invoke('clipboard:copy-image', dataUrl),
+  saveImageToFile: (dataUrl: string) => ipcRenderer.invoke('file:save-image', dataUrl),
+  getClipboardImage: () => ipcRenderer.invoke('clipboard:get-image'),
 })
 
 // --------- Preload scripts loading ---------

@@ -78,6 +78,13 @@ export default defineConfig({
     "fixed-tr": "fixed-rt",
     "fixed-bl": "fixed-lb",
     "fixed-br": "fixed-rb",
+    "fixed-full": "fixed top-0 left-0 w-100vw h-100vh",
+
+    /* 悬浮窗口样式 */
+    "float-panel": "bg-bg-2/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-bg-3/50",
+    "glass-effect": "bg-bg-2/80 backdrop-blur-xl border border-white/10",
+    "action-btn": "px-3 py-2 rounded-lg bg-bg-3 hover:bg-bg-4 transition-colors text-sm cursor-pointer",
+    "action-btn-primary": "px-3 py-2 rounded-lg bg-theme hover:opacity-90 text-white transition-opacity text-sm cursor-pointer",
   },
   theme: {
     colors: {

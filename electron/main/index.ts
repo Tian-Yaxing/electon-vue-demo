@@ -1,8 +1,11 @@
-import { app, BrowserWindow, dialog, ipcMain, Menu, shell } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, Menu, shell, globalShortcut, clipboard, nativeImage } from "electron";
 import { createRequire } from "node:module";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { FloatWindowManager } from "./services/FloatWindowManager";
+import { ScreenshotService } from "./services/ScreenshotService";
+import { IPC_CHANNELS } from "../common/ipcChannels";
 
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -103,11 +106,67 @@ async function createWindow() {
 
 Menu.setApplicationMenu(null);
 
-app.whenReady().then(createWindow);
+// 初始化服务
+const floatManager = new FloatWindowManager();
+const screenshotService = new ScreenshotService();
+
+// 注册悬浮窗口 IPC 处理器
+ipcMain.handle(IPC_CHANNELS.FLOATING.SHOW, () => floatManager.show());
+ipcMain.handle(IPC_CHANNELS.FLOATING.HIDE, () => floatManager.hide());
+ipcMain.handle(IPC_CHANNELS.FLOATING.TOGGLE, () => floatManager.toggle());
+
+// 注册截屏 IPC 处理器
+ipcMain.handle(IPC_CHANNELS.SCREENSHOT.CAPTURE_FULLSCREEN, () => screenshotService.captureFullScreen());
+ipcMain.handle(IPC_CHANNELS.SCREENSHOT.CAPTURE_SELECTION, () => screenshotService.captureSelection());
+
+// 注册剪贴板和文件 IPC 处理器
+ipcMain.handle('clipboard:copy-image', (_event, dataUrl: string) => {
+  const image = nativeImage.createFromDataURL(dataUrl);
+  clipboard.writeImage(image);
+  return true;
+});
+
+ipcMain.handle('clipboard:get-image', () => {
+  const image = clipboard.readImage();
+  if (image.isEmpty()) return null;
+  return { dataUrl: image.toDataURL() };
+});
+
+ipcMain.handle('file:save-image', async (_event, dataUrl: string) => {
+  const result = await dialog.showSaveDialog(win!, {
+    title: '保存截图',
+    defaultPath: `screenshot-${Date.now()}.png`,
+    filters: [{ name: 'PNG Image', extensions: ['png'] }],
+  });
+
+  if (result.filePath) {
+    const image = nativeImage.createFromDataURL(dataUrl);
+    const buffer = image.toPNG();
+    const fs = await import('node:fs/promises');
+    await fs.writeFile(result.filePath, buffer);
+    return result.filePath;
+  }
+  return null;
+});
+
+app.whenReady().then(() => {
+  createWindow();
+
+  // 注册全局快捷键 Cmd+Ctrl+A (macOS) / Ctrl+Alt+A (Windows/Linux)
+  const shortcutKey = process.platform === 'darwin' ? 'CommandOrControl+Alt+A' : 'Ctrl+Alt+A';
+  globalShortcut.register(shortcutKey, () => {
+    floatManager.toggle();
+  });
+});
 
 app.on("window-all-closed", () => {
   win = null;
   if (process.platform !== "darwin") app.quit();
+});
+
+// 退出时注销全局快捷键
+app.on("will-quit", () => {
+  globalShortcut.unregisterAll();
 });
 
 app.on("second-instance", () => {
